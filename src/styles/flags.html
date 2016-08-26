@@ -1,0 +1,45 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+<style>
+  .flag-card {
+    border: 1px solid silver;
+    border-radius: 12px;
+    display: inline-block;
+    margin: .5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 4.5em;
+  }
+
+  .flag-card .ui-flag {
+    width: 4.5em;
+    height: 3.5em;
+    padding: .5em 0;
+    background-size: 2em auto;
+  }
+
+  .flag-card p {
+    text-align: center;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+  <ui-content padded scroll>
+    <p>Flag icon glyphs classes have both ISO-2 and ISO-3 country codes.<br/>All images are encoded using Base64, no image files required.<br/>e.g. <code>class="ui-flag US"</code> or <code>class="ui-flag usa"</code></p>
+    <div repeat.for="k of countries | keys">
+      <h3>${k}</h3>
+      <div class="flag-card" repeat.for="c of countries[k]">
+        <span class="ui-flag ${c.iso3}"></span>
+        <p>${c.name}</p>
+        <p><code>${c.iso2}</code> <code>${c.iso3}</code></p>
+      </div>
+    </div>
+  </ui-content>
+</template>

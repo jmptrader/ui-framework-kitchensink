@@ -1,0 +1,57 @@
+@import "utility/copic";
+// IF THESE FONTS ARE CHANGED MAKE SURE TO UPDATE RELEVANT VARIABLES
+// $font-family-input
+@import url('//fonts.googleapis.com/css?family=Lato');
+// $font-family-sans-serif
+@import url('//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,800italic,400,300,600,800');
+// $font-family-serif
+@import url('//fonts.googleapis.com/css?family=Source+Code+Pro');
+
+@import url('../fonts/vaadin/flaticon.css');
+
+// Optional CSS and Fonts
+@import "utility/flags";
+// END:Optional
+
+$primary: $orange;
+$secondary: $chrome-orange;
+
+$app-header-bg: $coral;
+$page-title-bg: $yellow-ochre;
+$page-title-text: $wg-8;
+
+$app-menu-active-bg: $cadmium-red;
+
+
+$text-muted: $wg-7;
+
+@import "framework";
+
+
+.screen-frame {
+  border-radius: .3em;
+  border: 1px solid silver;
+  max-width: 768px;
+  margin: 0 auto;
+  // pointer-events: none;
+  cursor: zoom-in;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+.zoom-container {
+  background: rgba(dimgray, .5);
+  text-align: center;
+  vertical-align: middle;
+  z-index: 50000;
+  @include position(fixed, 0,0,0,0);
+  @include flex-column(center, center);
+
+  img {
+    max-width: 1024px;
+    max-height: 640px;
+    height: 100%;
+  }
+}

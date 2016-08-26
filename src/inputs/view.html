@@ -1,0 +1,15 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-page page-title.bind="router.title">
+    <ui-section row>
+      <ui-sidebar collapsible>
+        <ui-menu router.bind="router"></ui-menu>
+      </ui-sidebar>
+      <router-view></router-view>
+    </ui-section>
+  </ui-page>
+</template>

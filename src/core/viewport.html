@@ -1,0 +1,45 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-content scroll padded>
+    <p>UIViewport is the main application structure, it contains the application header, footer and a drawer styled sidemenu. It also provides the option of having a windows like taskbar for supporting multiple dialog views</p>
+
+    <ui-row>
+      <ui-column size="md-6" padded>
+        <div class="screen-frame" click.trigger="zoomImage($event)"><img src="images/viewport/basic-view.png" /></div>
+      </ui-column>
+      <ui-column size="md-6" padded>
+        <div class="screen-frame" click.trigger="zoomImage($event)"><img src="images/viewport/menu-view.png" /></div>
+      </ui-column>
+    </ui-row>
+
+    <ui-md-view>
+      <pre>
+<xmp>
+<template>
+  <ui-viewport hide-logout router.bind="router" icon="images/logo.png"
+      subtitle="Kitchensink" copyright="Copyright © 2016, Adarsh Pastakia">
+
+    <div style="width: 180px">
+      <ui-input auto-width label-hide button-icon="fi-ui-search" placeholder="Search..."></ui-input>
+    </div>
+
+    <ui-button dropdown value.bind="i18n.getLocale()" danger menuclick.trigger="changeLanguage($event)">
+      <menu id="en">English</menu>
+      <menu id="es">Español</menu>
+    </ui-button>
+
+  </ui-viewport>
+</template>
+</xmp>
+      </pre>
+    </ui-md-view>
+
+    <div class="zoom-container ${hideZoom?'ui-hide':''}" ref="__zoomer" click.trigger="hideZoom = true">
+      <img ref="__zoom" />
+    </div>
+  </ui-content>
+</template>

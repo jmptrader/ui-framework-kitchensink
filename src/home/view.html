@@ -1,0 +1,97 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <style>
+    .action-card {
+      display: block;
+      margin: 1em;
+      width: 15em;
+      border: 1px solid silver;
+      border-radius: 12px;
+      padding: 1em;
+    }
+
+    .action-card:hover {
+      background: #f0f0f0;
+    }
+
+    .action-card .action-icon {
+      font-size: 4em;
+      text-align: center;
+      color: #999;
+    }
+
+    .action-card:hover .action-icon {
+      color: #F26D43;
+    }
+
+    .action-card .action-text {
+      margin-top: .5em;
+      font-size: 1.25em;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .action-card p {
+      color: #333;
+      font-weight: 300;
+      text-align: center;
+      border-top: 1px solid silver;
+      margin-top: .5em;
+    }
+  </style>
+  <ui-page page-title="">
+    <ui-content scroll padded>
+      <h3 class="ui-text-center ui-thin">Welcome to Sigma-UI-Framework examples and sample code<br/><br/><small>For complete documentation please visit our <a href="http://sigmaframeworks.io/docs/framework" target="_blank">site</a></small></h3>
+      <ui-row class="ui-align-center ui-align-stretch">
+        <a href="#/start" class="ui-col-auto action-card">
+          <div class="action-icon">
+            <span class="fi-vaadin-automation"></span>
+          </div>
+          <div class="ui-text-center action-text">Get Started</div>
+          <p>Requirements and guide for starting an aurelia project</p>
+        </a>
+        <a href="#/core" class="ui-col-auto action-card">
+          <div class="action-icon">
+            <span class="fi-vaadin-layout"></span>
+          </div>
+          <div class="ui-text-center action-text">Core Elements</div>
+          <p>Viewport and collection of main page elements</p>
+        </a>
+        <a href="#/inputs" class="ui-col-auto action-card">
+          <div class="action-icon">
+            <span class="fi-vaadin-input"></span>
+          </div>
+          <div class="ui-text-center action-text">Input Elements</div>
+          <p>Form and collection of various input elements</p>
+        </a>
+      </ui-row>
+      <ui-row class="ui-align-center ui-align-stretch">
+        <a href="#/components" class="ui-col-auto action-card">
+          <div class="action-icon">
+            <span class="fi-vaadin-toolbox"></span>
+          </div>
+          <div class="ui-text-center action-text">Components</div>
+          <p>Collection of display elements and data-driven components</p>
+        </a>
+        <a href="#/utilities" class="ui-col-auto action-card">
+          <div class="action-icon">
+            <span class="fi-vaadin-tools"></span>
+          </div>
+          <div class="ui-text-center action-text">Utility Classes</div>
+          <p>Application and utility classes</p>
+        </a>
+        <a href="#/styles" class="ui-col-auto action-card">
+          <div class="action-icon">
+            <span class="fi-vaadin-css-code"></span>
+          </div>
+          <div class="ui-text-center action-text">Glyphs &amp; CSS Classes</div>
+          <p>Glpyh icons, typography and css helper classes</p>
+        </a>
+      </ui-row>
+    </ui-content>
+  </ui-page>
+</template>

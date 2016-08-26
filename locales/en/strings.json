@@ -1,0 +1,15 @@
+{
+  "app_subtitle": "Kitchensink",
+  "languages": {
+    "en": "English",
+    "es": "Spanish"
+  },
+  "login":{
+    "username": "Username",
+    "password": "Password",
+    "remember": "Remember Me",
+    "button"  : "Login",
+    "version" : "Version {{Version}}",
+    "design_message": "This app is designed to run on desktop and tablets"
+  }
+}
