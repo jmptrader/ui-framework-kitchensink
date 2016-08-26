@@ -4,20 +4,66 @@
 // @license     : MIT
 -->
 <template>
-  <div class="ui-scroll ui-col-fill">
-    <div class="ui-pad-all">
-      <ui-login row-layout>
-        <h4><span class="fi-ui-key-white"></span></h4>
-        <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
-          <br/>Please - sign-in to continue</p>
-      </ui-login>
-    </div>
-    <div class="ui-pad-all">
-      <ui-login>
-        <h4><span class="fi-ui-key-white"></span></h4>
-        <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
-          <br/>Please - sign-in to continue</p>
-      </ui-login>
-    </div>
-  </div>
+  <ui-tab-panel>
+    <ui-tab label="Example" scroll padded>
+      <div class="ui-pad-all">
+        <ui-login row-layout>
+          <h4><span class="fi-ui-key-white"></span></h4>
+          <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
+            <br/>Please sign-in to continue</p>
+        </ui-login>
+      </div>
+      <div class="ui-pad-all">
+        <ui-login>
+          <h4><span class="fi-ui-key-white"></span></h4>
+          <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
+            <br/>Please sign-in to continue</p>
+        </ui-login>
+      </div>
+    </ui-tab>
+    <ui-tab label="Code" scroll padded>
+      <h5>Column Layout</h5>
+      <md-view>
+        <pre>
+  <xmp>
+  <template>
+    <ui-login row-layout>
+      <h4><span class="fi-ui-key-white"></span></h4>
+      <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
+        <br/>Please sign-in to continue</p>
+    </ui-login>
+  </template>
+  </xmp>
+        </pre>
+      </md-view>
+
+      <h5>Vertical Layout</h5>
+      <md-view>
+        <pre>
+  <xmp>
+  <template>
+    <ui-login>
+      <h4><span class="fi-ui-key-white"></span></h4>
+      <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
+        <br/>Please sign-in to continue</p>
+    </ui-login>
+  </template>
+  </xmp>
+        </pre>
+      </md-view>
+
+      <h5>ViewModel</h5>
+      <md-view ts>
+        <pre>
+import {autoinject} from "aurelia-framework";
+@autoinject()
+export class MyLogin {
+  doLogin($event) {
+    performLogin($event.detail.username, $event.detail.password);
+  }
+}
+        </pre>
+      </md-view>
+    </ui-tab>
+  </ui-tab-panel>
 </template>

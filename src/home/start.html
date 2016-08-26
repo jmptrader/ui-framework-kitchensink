@@ -5,6 +5,108 @@
 -->
 <template>
   <ui-page page-title="Getting Started">
-    <ui-content scroll padded></ui-content>
+    <ui-content scroll padded>
+      <ui-row center>
+        <ui-column size="xl-6 lg-8 md-10" class="ui-markdown">
+          <h2>Getting started with using SigmaUIFramework</h2>
+          <hr/>
+          <h4>Download the skeleton project from <a href="https://github.com/sigmaframeworks/sigma-ui-skeleton/archive/master.zip">here</a></h4>
+
+          <h4>1. Create an aurelia project</h4>
+          <md-view bash>
+            <pre>
+mkdir [project_dir]
+cd [project_dir]
+au new --here
+
+npm install sigma-ui-framework --save
+            </pre>
+          </md-view>
+
+          <h4>2. Replace generate files with skeleton files</h4>
+          <md-view bash>
+            <pre>
+cp -r [skeleton_dir]/* .
+            </pre>
+          </md-view>
+
+          <h4>3. Update <code>aurelia_project/aurelia.json</code></h4>
+          <ul>
+            <li>Change <code>"stub": true` to `"stub": false</code></li>
+            <li>Add to <code>transpiler/dtsSource</code> <code>"./node_modules/sigma-ui-framework/dist/typings/**/*.d.ts"</code></li>
+            <li>Add to <code>bundles</code> object after <code>app-bundle.js</code></li>
+          </ul>
+          <md-view json>
+            <pre>
+{
+    "name": "ui-framework.js",
+    "prepend": [
+      "node_modules/whatwg-fetch/fetch.js",
+      "node_modules/fabric/dist/fabric.js"
+    ],
+    "dependencies": [
+      "lodash",
+      "moment",
+      "numeral",
+      "aurelia-validatejs",
+      "aurelia-fetch-client",
+      {
+        "name": "text",
+        "path": "../scripts/text"
+      },
+      {
+        "name": "kramed",
+        "path": "../node_modules/kramed/lib",
+        "main": "kramed"
+      },
+      {
+        "name": "intl",
+        "path": "../node_modules/intl/dist",
+        "main": "intl"
+      },
+      {
+        "name": "i18next",
+        "path": "../node_modules/i18next/dist/umd",
+        "main": "i18next"
+      },
+      {
+        "name": "i18next-xhr-backend",
+        "path": "../node_modules/i18next-xhr-backend/dist/umd",
+        "main": "i18nextXHRBackend"
+      },
+      {
+        "name": "aurelia-i18n",
+        "path": "../node_modules/aurelia-i18n/dist/amd",
+        "main": "aurelia-i18n"
+      },
+      {
+        "name": "aurelia-validation",
+        "path": "../node_modules/aurelia-validation/dist/amd",
+        "main": "aurelia-validation"
+      },
+      {
+        "name": "amcharts",
+        "path": "../node_modules/amcharts/dist",
+        "main": "amcharts/amcharts"
+      },
+      {
+        "name": "sigma-ui-framework",
+        "path": "../node_modules/sigma-ui-framework/dist",
+        "main": "sigma-ui-framework"
+      }
+    ]
+}
+            </pre>
+          </md-view>
+
+          <h4>4. development and Deployment</h4>
+          <ul>
+            <li><code>au run --watch</code>: Run project in development mode, serves the built project on <code>localhost:9000</code></li>
+            <li><code>au build --env prod</code>: Build project for production deployment</li>
+            <li><code>gulp prod</code>: Build sass files and copy required files to deployment ready folder <code>dist/</code></li>
+          </ul>
+        </ui-column>
+      </ui-row>
+    </ui-content>
   </ui-page>
 </template>

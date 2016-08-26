@@ -3,7 +3,7 @@ var compass = require('gulp-compass'),
   plumber = require('gulp-plumber');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
-var distFolder = '../ui-framework-site';
+var distFolder = '../dist';
 
 // SASS/Compass compiler
 gulp.task('sass', function(done) {
@@ -24,7 +24,7 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('clean', function() {
-  return gulp.src([distFolder])
+  return gulp.src([distFolder + '/*', '!' + distFolder + '/CNAME'])
     .pipe(vinylPaths(del));
 });
 
