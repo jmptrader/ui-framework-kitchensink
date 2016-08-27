@@ -1,0 +1,89 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-tab-panel>
+    <ui-tab label="Example" scroll padded>
+      <h2>Grid Layout</h2>
+      <hr/>
+      <ui-row class="ui-border-b">
+        <ui-column padded class="ui-bg-info" width="120px">Fixed Width</ui-column>
+        <ui-column padded class="ui-bg-success" auto>Auto Filled Column</ui-column>
+        <ui-column padded class="ui-bg-danger" fill>Stretched Column</ui-column>
+        <ui-column padded class="ui-bg-warning" full>Full Width Column Wrapped</ui-column>
+      </ui-row>
+      <hr/>
+
+      <h4>Xtra Large Views</h4>
+      <ui-row class="ui-border-b">
+        <ui-column padded class="ui-bg-info" size="xl-3">xl-3</ui-column>
+        <ui-column padded class="ui-bg-success" size="xl-3">xl-3</ui-column>
+        <ui-column padded class="ui-bg-danger" size="xl-3">xl-3</ui-column>
+        <ui-column padded class="ui-bg-warning" size="xl-3">xl-3</ui-column>
+      </ui-row>
+      <hr/>
+
+      <h4>Large Views</h4>
+      <ui-row class="ui-border-b">
+        <ui-column padded class="ui-bg-info" size="lg-3">lg-3</ui-column>
+        <ui-column padded class="ui-bg-success" size="lg-3">lg-3</ui-column>
+        <ui-column padded class="ui-bg-danger" size="lg-3">lg-3</ui-column>
+        <ui-column padded class="ui-bg-warning" size="lg-3">lg-3</ui-column>
+      </ui-row>
+      <hr/>
+
+      <h4>Medium Views</h4>
+      <ui-row class="ui-border-b">
+        <ui-column padded class="ui-bg-info" size="md-3">md-3</ui-column>
+        <ui-column padded class="ui-bg-success" size="md-3">md-3</ui-column>
+        <ui-column padded class="ui-bg-danger" size="md-3">md-3</ui-column>
+        <ui-column padded class="ui-bg-warning" size="md-3">md-3</ui-column>
+      </ui-row>
+      <hr/>
+
+      <h4>Small Views</h4>
+      <ui-row class="ui-border-b">
+        <ui-column padded class="ui-bg-info" size="sm-3">sm-3</ui-column>
+        <ui-column padded class="ui-bg-success" size="sm-3">sm-3</ui-column>
+        <ui-column padded class="ui-bg-danger" size="sm-3">sm-3</ui-column>
+        <ui-column padded class="ui-bg-warning" size="sm-3">sm-3</ui-column>
+      </ui-row>
+      <hr/>
+
+      <h4>Xtra Small Views</h4>
+      <ui-row class="ui-border-b">
+        <ui-column padded class="ui-bg-info" size="xs-3">xs-3</ui-column>
+        <ui-column padded class="ui-bg-success" size="xs-3">xs-3</ui-column>
+        <ui-column padded class="ui-bg-danger" size="xs-3">xs-3</ui-column>
+        <ui-column padded class="ui-bg-warning" size="xs-3">xs-3</ui-column>
+      </ui-row>
+    </ui-tab>
+    <ui-tab label="Code" scroll padded>
+      <md-view>
+        <pre>
+<xmp>
+<ui-row>
+  <ui-column padded width="120px">Fixed Width</ui-column>
+  <ui-column padded auto>Auto Filled Column</ui-column>
+  <ui-column padded fill>Stretched Column</ui-column>
+  <ui-column padded full>Full Width Column Wrapped</ui-column>
+</ui-row>
+
+<ui-row>
+  <ui-column padded size="xl-2 lg-3 md-4 sm-6 xs-12"></ui-column>
+  <ui-column padded size="xl-2 lg-3 md-4 sm-6 xs-12"></ui-column>
+  <ui-column padded size="xl-2 lg-3 md-4 sm-6 xs-12"></ui-column>
+  <ui-column padded size="xl-2 lg-3 md-4 sm-6 xs-12"></ui-column>
+  <ui-column padded size="xl-2 lg-3 md-4 sm-6 xs-12"></ui-column>
+  <ui-column padded size="xl-2 lg-3 md-4 sm-6 xs-12"></ui-column>
+</ui-row>
+</xmp>
+        </pre>
+      </md-view>
+      <p><b>NOTE</b> Multiple sizes can be passed separated by space</p>
+      <p>See the docs for <a href="http://sigmaframeworks.io/docs/framework/core.html#grid-layout" target="_blank">more options</a></p>
+    </ui-tab>
+  </ui-tab-panel>
+</template>

@@ -12,7 +12,7 @@
     "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
     "aurelia-fetch-client": "^1.0.0-rc.1.0.0",
     "aurelia-i18n": "^1.0.0",
-    "aurelia-validation": "github:jdanyow/validation-prototype",
+    "aurelia-validation": "^0.12.0",
     "bluebird": "^3.4.1",
     "highlight.js": "^9.6.0",
     "i18next-xhr-backend": "^1.1.0",

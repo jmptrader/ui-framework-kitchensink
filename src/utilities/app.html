@@ -5,6 +5,58 @@
 -->
 <template>
   <ui-content scroll padded>
-    <h3>Application</h3>
+    <h3>Using UIApplication</h3>
+    <p>UIApplication is a singleton class, it provides common application functions, and functionality for sharing objects and properties across routes</p>
+    <p>For complete documentation of available properties and methods <a href="http://sigmaframeworks.io/docs/framework/utilities.html#application" target="_blank">read this</a></p>
+    <md-view ts>
+      <pre>
+import {inject} from "aurelia-framework";
+import {UIApplication} from "sigma-ui-framework";
+@inject(UIApplication)
+export class MyViewModel {
+  constructor(public app:UIApplication){}
+
+  activate() {
+    // Log information
+    this.app.info('MyViewModel', 'activated');
+
+    // Get a shared object
+    this.myObject = this.app.shared('myobject');
+  }
+
+  someTrigger() {
+    // Set a shared object
+    this.app.shared('myobject', this.myObject);
+  }
+
+  anotherTrigger() {
+    // Navigate to route
+    this.app.navigateTo(routeName, params, extraOptions);
+  }
+
+  loginFailure() {
+    // Toast a message
+    this.app.toastError("OOPS! Unable to authenticate.");
+  }
+
+  // Most essential after authentication
+  loginSuccess(resp) {
+    // Displayed in main menu 'Logged in as $username'
+    this.app.Username = $username;
+
+    // These variables will be used by HttpClient for basic authentication when enabled
+    this.app.AuthUser = resp.authUser;
+    this.app.AuthToken = resp.authToken;
+
+    // Indicator to enable menu and header option logout button
+    this.app.IsAuthenticated = true;
+  }
+
+  onLogout() {
+    this.app.logout();
+  }
+}
+      </pre>
+    </md-view>
   </ui-content>
 </template>

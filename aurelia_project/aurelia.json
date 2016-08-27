@@ -13,8 +13,6 @@
     "dtsSource": [
       "./typings/**/*.d.ts",
       "./custom_typings/**/*.d.ts",
-      "./node_modules/i18next-xhr-backend/typings/*.d.ts",
-      "./node_modules/aurelia-validation/**/*.d.ts",
       "./node_modules/sigma-ui-framework/dist/typings/**/*.d.ts"
     ],
     "source": "src/**/*.ts"

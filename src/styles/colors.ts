@@ -3,6 +3,7 @@ import {UIApplication} from "sigma-ui-framework";
 import * as ZeroClipboard from "zeroclipboard";
 @autoinject()
 export class Colors {
+  optVal = 1;
   colors = {
     'Black/White': {
       '$black-sp': '#231F20',
@@ -407,4 +408,5 @@ export class Colors {
     new ZeroClipboard(this.element.querySelectorAll('button'))
       .on('aftercopy', () => this.app.toast("Copied!!!"));
   }
+
 }

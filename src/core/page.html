@@ -1,0 +1,185 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <style>
+    .page-container {
+      height: 400px;
+      width: 600px;
+      margin: auto;
+      position: relative;
+    }
+  </style>
+  <ui-tab-panel>
+    <ui-tab label="Example" padded scroll>
+      <h4>Toolbar</h4>
+      <ui-toolbar>
+        <ui-column fill>Toolbar text</ui-column>
+        <ui-button-group square>
+          <ui-button icon="fi-ui-edit-thick" info></ui-button>
+          <ui-button icon="fi-ui-delete-black" danger></ui-button>
+        </ui-button-group>
+        <ui-button-group square>
+          <ui-button icon="fi-vaadin-add-square"></ui-button>
+          <ui-button icon="fi-vaadin-minus-button"></ui-button>
+        </ui-button-group>
+        <ui-divider></ui-divider>
+        <ui-button success label="Save"></ui-button>
+        <ui-button warning label="Cancel"></ui-button>
+      </ui-toolbar>
+      <hr/>
+      <h4>Statsbar</h4>
+      <ui-statsbar>
+        <ui-stat value="24" icon="fi-vaadin-clock">Hours</ui-stat>
+        <ui-stat value="365" icon="fi-vaadin-calendar-and-clock">Days</ui-stat>
+        <ui-stat value="42" icon="fi-vaadin-chat">Answer</ui-stat>
+      </ui-statsbar>
+      <hr/>
+      <h4>Simple Page</h4>
+      <div class="page-container ui-border-all">
+        <ui-page page-title="My Title">
+          <ui-content padded scroll>
+            <div innerhtml.bind="lipsum | markdown"></div>
+          </ui-content>
+        </ui-page>
+      </div>
+      <hr/>
+      <h4>Page with Auto Content</h4>
+      <div class="page-container ui-border-all">
+        <ui-page page-title="My Title">
+          <ui-content padded auto class="ui-bg-info">
+            <div innerhtml.bind="lipsum_short | markdown"></div>
+          </ui-content>
+          <ui-content padded scroll>
+            <div innerhtml.bind="lipsum | markdown"></div>
+          </ui-content>
+        </ui-page>
+      </div>
+      <hr/>
+      <h4>Page with Sidebar</h4>
+      <div class="page-container ui-border-all">
+        <ui-page page-title="My Title">
+          <ui-section row>
+            <ui-sidebar collapsible width="150px">
+              <ui-menu>
+                <menu>Child Route</menu>
+                <menu active="true">Child Route</menu>
+                <menu>Child Route</menu>
+              </ui-menu>
+            </ui-sidebar>
+            <ui-content padded scroll>
+              <div innerhtml.bind="lipsum | markdown"></div>
+            </ui-content>
+          </ui-section>
+        </ui-page>
+      </div>
+    </ui-tab>
+    <ui-tab label="Code" scroll padded>
+      <h4>Toolbar</h4>
+      <md-view>
+        <pre>
+<xmp>
+<ui-toolbar>
+  <ui-column fill>Toolbar text</ui-column>
+  <ui-button-group square>
+    <ui-button icon="fi-ui-edit-thick" info></ui-button>
+    <ui-button icon="fi-ui-delete-black" danger></ui-button>
+  </ui-button-group>
+  <ui-button-group square>
+    <ui-button icon="fi-vaadin-add-square"></ui-button>
+    <ui-button icon="fi-vaadin-minus-button"></ui-button>
+  </ui-button-group>
+  <ui-divider></ui-divider>
+  <ui-button success label="Save"></ui-button>
+  <ui-button warning label="Cancel"></ui-button>
+</ui-toolbar>
+</xmp>
+        </pre>
+      </md-view>
+      <h4>Statsbar</h4>
+      <md-view>
+        <pre>
+<xmp>
+<ui-statsbar>
+  <ui-stat value="24" icon="fi-vaadin-clock">Hours</ui-stat>
+  <ui-stat value="365" icon="fi-vaadin-calendar-and-clock">Days</ui-stat>
+  <ui-stat value="42" icon="fi-vaadin-chat">Answer</ui-stat>
+</ui-statsbar>
+</xmp>
+        </pre>
+      </md-view>
+      <h4>Simple Page</h4>
+      <md-view>
+        <pre>
+<xmp>
+<ui-page page-title="My Title">
+  <ui-content padded scroll>
+    <!-- any content -->
+  </ui-content>
+</ui-page>
+</xmp>
+        </pre>
+      </md-view>
+      <h4>Page with Auto Content</h4>
+      <md-view>
+        <pre>
+<xmp>
+<ui-page page-title="My Title">
+  <ui-section>
+    <ui-content padded auto>
+      <!-- any content -->
+    </ui-content>
+    <ui-content padded scroll>
+      <!-- any content -->
+    </ui-content>
+  </ui-section>
+</ui-page>
+</xmp>
+        </pre>
+      </md-view>
+      <p><b>NOTE</b> Page must contain on non-auto fit content block</p>
+      <h4>Page with Sidebar and menu</h4>
+      <md-view>
+        <pre>
+<xmp>
+<ui-page page-title="My Title">
+  <ui-section row>
+    <ui-sidebar collapsible scroll>
+      <ui-menu router.bind="childRouter"></ui-menu>
+    </ui-sidebar>
+    <router-view></router-view>
+  </ui-section>
+</ui-page>
+</xmp>
+        </pre>
+      </md-view>
+      <p><b>NOTE</b> When using menu with child-router, every route view must contain <code>&lt;ui-content>&lt;/ui-content></code></p>
+      <h4>Complex Page with Sidebar and Toolbars</h4>
+      <md-view>
+        <pre>
+<xmp>
+<ui-page page-title="My Title">
+  <ui-section row>
+    <ui-sidebar collapsible scroll>
+      <!-- any content -->
+    </ui-sidebar>
+    <ui-section>
+      <ui-statsbar></ui-statsbar>
+      <ui-content padded scroll>
+        <!-- any content -->
+      </ui-content>
+      <ui-toolbar>
+        <ui-button primary label="Save"></ui-button>
+        <ui-button label="Cancel"></ui-button>
+      </ui-toolbar>
+    </ui-section>
+  </ui-section>
+</ui-page>
+</xmp>
+        </pre>
+      </md-view>
+    </ui-tab>
+  </ui-tab-panel>
+</template>
