@@ -41,15 +41,12 @@ export class MyViewModel {
 
   // Most essential after authentication
   loginSuccess(resp) {
-    // Displayed in main menu 'Logged in as $username'
-    this.app.Username = $username;
-
     // These variables will be used by HttpClient for basic authentication when enabled
-    this.app.AuthUser = resp.authUser;
-    this.app.AuthToken = resp.authToken;
+    this.app.login(resp.authUser, resp.authToken);
 
-    // Indicator to enable menu and header option logout button
-    this.app.IsAuthenticated = true;
+    // Displayed in main menu 'Logged in as $username'.
+    // Will default to resp.authUser passed in login method above
+    this.app.Username = $username;
   }
 
   onLogout() {

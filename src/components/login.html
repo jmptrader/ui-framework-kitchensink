@@ -27,7 +27,7 @@
         <pre>
   <xmp>
   <template>
-    <ui-login row-layout>
+    <ui-login row-layout login.trigger="doLogin($event)">
       <h4><span class="fi-ui-key-white"></span></h4>
       <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
         <br/>Please sign-in to continue</p>
@@ -42,7 +42,7 @@
         <pre>
   <xmp>
   <template>
-    <ui-login>
+    <ui-login login.trigger="doLogin($event)">
       <h4><span class="fi-ui-key-white"></span></h4>
       <p class="ui-font-big ui-text-center"><strong>Sigma UI Framework</strong>
         <br/>Please sign-in to continue</p>
@@ -56,10 +56,14 @@
       <md-view ts>
         <pre>
 import {autoinject} from "aurelia-framework";
+import {UIApplication} from "sigma-ui-framework";
+
 @autoinject()
 export class MyLogin {
+  constructor(public app:UIApplication) { }
   doLogin($event) {
-    performLogin($event.detail.username, $event.detail.password);
+    performLogin($event.detail.username, $event.detail.password)
+      .then(resp=>this.app.login(resp.userId, resp.token));
   }
 }
         </pre>

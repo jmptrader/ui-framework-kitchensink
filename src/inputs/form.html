@@ -4,7 +4,231 @@
 // @license     : MIT
 -->
 <template>
-  <ui-content scroll padded>
-    <h3>Form</h3>
-  </ui-content>
+  <style>
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
+  <ui-tab-panel>
+    <ui-tab label="Example" flex>
+      <ui-content scroll padded>
+        <div class='form-container'>
+          <ui-form auto-grid submit.trigger='validate()'>
+            <ui-fieldset label='Basic Inputs'>
+              <ui-row>
+                <ui-column>
+                  <ui-input required clear capitalize value.bind='model.firstName & validate' placeholder='Your first name..'>First Name</ui-input>
+                </ui-column>
+                <ui-column>
+                  <ui-input required clear capitalize value.bind='model.lastName & validate' placeholder='Your last name..'>Last Name</ui-input>
+                </ui-column>
+              </ui-row>
+              <ui-row>
+                <ui-column>
+                  <ui-input required clear email value.bind='model.email & validate' prefix-icon='fi-vaadin-at' placeholder='user@domain.com'>Email</ui-input>
+                  <ui-phone required clear international value.bind='model.phone & validate'>Primary Phone</ui-phone>
+                  <ui-input-dual required clear decimal value.bind='model.latitude & validate' value-second.bind='model.longitude & validate' prefix-text='Lat.' center-text='Lon.' placeholder='-90 to 90' placeholder-second='-180 to 180'>Position</ui-input-dual>
+                  <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
+                </ui-column>
+                <ui-column>
+                  <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
+                </ui-column>
+              </ui-row>
+            </ui-fieldset>
+            <ui-fieldset label='ComboBox'>
+              <ui-row>
+                <ui-column>
+                  <ui-combo required clear value.bind='model.nationality & validate' options.bind='countries' icon-property='iso3' icon-class='ui-flag' display-property='name' value-property='iso3' help-text='Single Selection'>Nationality</ui-combo>
+                </ui-column>
+                <ui-column>
+                  <ui-tags required clear value.bind='model.countries & validate' options.bind='countries' icon-property='iso3' icon-class='ui-flag' display-property='name' value-property='iso3' help-text='Multiple Selection'>Countries Visited</ui-tags>
+                </ui-column>
+              </ui-row>
+            </ui-fieldset>
+            <ui-fieldset label='Dates'>
+              <ui-row>
+                <ui-column>
+                  <ui-date required date.bind='model.birthday'>Birthday</ui-date>
+                </ui-column>
+                <ui-column>
+                  <ui-date range required format='DD-MMM-YY' date.bind='model.dateRangeStart' date-end.bind='model.dateRangeEnd'>Range</ui-date>
+                </ui-column>
+              </ui-row>
+            </ui-fieldset>
+            <ui-fieldset label='Checkboxes & Radios'>
+              <ui-row>
+                <ui-column>
+                  <ui-option-group vetical label='Favorite Movies'>
+                    <ui-checkbox repeat.for='movie of model.movies' checked.bind='movie.selected'>${movie.name}</ui-checkbox>
+                  </ui-option-group>
+                </ui-column>
+                <ui-column>
+                  <ui-option-group vetical label='Favorite Food' value.bind='model.cuisine'>
+                    <ui-radio repeat.for='cuisine of model.cuisines' value.bind='cuisine'>${cuisine}</ui-radio>
+                  </ui-option-group>
+                </ui-column>
+              </ui-row>
+            </ui-fieldset>
+          </ui-form>
+        </div>
+      </ui-content>
+      <ui-toolbar>
+        <ui-button label='Validate' primary click.trigger='validate()'></ui-button>
+        <ui-button label='Reset'></ui-button>
+      </ui-toolbar>
+    </ui-tab>
+    <ui-tab label="View" padded scroll>
+      <md-view>
+        <pre>
+<xmp>
+<ui-form auto-grid submit.trigger='validate()'>
+  <ui-fieldset label='Basic Inputs'>
+    <ui-row>
+      <ui-column>
+        <ui-input required clear capitalize value.bind='model.firstName & validate' placeholder='Your first name..'>First Name</ui-input>
+      </ui-column>
+      <ui-column>
+        <ui-input required clear capitalize value.bind='model.lastName & validate' placeholder='Your last name..'>Last Name</ui-input>
+      </ui-column>
+    </ui-row>
+    <ui-row>
+      <ui-column>
+        <ui-input required clear email value.bind='model.email & validate' prefix-icon='fi-vaadin-at'
+          placeholder='user@domain.com'>Email</ui-input>
+
+        <ui-phone required clear international value.bind='model.phone & validate'>Primary Phone</ui-phone>
+
+        <ui-input-dual required clear decimal value.bind='model.latitude & validate'
+          value-second.bind='model.longitude & validate' prefix-text='Lat.' center-text='Lon.'
+          placeholder='-90 to 90' placeholder-second='-180 to 180'>Position</ui-input-dual>
+
+        <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
+      </ui-column>
+      <ui-column>
+        <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
+      </ui-column>
+    </ui-row>
+  </ui-fieldset>
+  <ui-fieldset label='ComboBox'>
+    <ui-row>
+      <ui-column>
+        <ui-combo required clear value.bind='model.nationality & validate' options.bind='countries'
+          icon-property='iso3' icon-class='ui-flag' display-property='name' value-property='iso3'
+          help-text='Single Selection'>Nationality</ui-combo>
+      </ui-column>
+      <ui-column>
+        <ui-tags required clear value.bind='model.countries & validate' options.bind='countries'
+          icon-property='iso3' icon-class='ui-flag' display-property='name' value-property='iso3'
+          help-text='Multiple Selection'>Countries Visited</ui-tags>
+      </ui-column>
+    </ui-row>
+  </ui-fieldset>
+  <ui-fieldset label='Dates'>
+    <ui-row>
+      <ui-column>
+        <ui-date required date.bind='model.birthday'>Birthday</ui-date>
+      </ui-column>
+      <ui-column>
+        <ui-date range required format='DD-MMM-YY' date.bind='model.dateRangeStart' date-end.bind='model.dateRangeEnd'>Range</ui-date>
+      </ui-column>
+    </ui-row>
+  </ui-fieldset>
+  <ui-fieldset label='Checkboxes & Radios'>
+    <ui-row>
+      <ui-column>
+        <ui-option-group vetical label='Favorite Movies'>
+          <ui-checkbox repeat.for='movie of model.movies' checked.bind='movie.selected'>${movie.name}</ui-checkbox>
+        </ui-option-group>
+      </ui-column>
+      <ui-column>
+        <ui-option-group vetical label='Favorite Food' value.bind='model.cuisine'>
+          <ui-radio repeat.for='cuisine of model.cuisines' value.bind='cuisine'>${cuisine}</ui-radio>
+        </ui-option-group>
+      </ui-column>
+    </ui-row>
+  </ui-fieldset>
+</ui-form>
+</xmp>
+        </pre>
+      </md-view>
+    </ui-tab>
+    <ui-tab label="View Model" padded scroll>
+      <md-view ts>
+        <pre>
+import {inject, NewInstance} from "aurelia-framework";
+import {ValidationController, ValidationRules} from "aurelia-validation";
+import {_} from "sigma-ui-framework";
+
+@inject(NewInstance.of(ValidationController))
+export class InputForm {
+  countries;
+  model: FormModel;
+
+  constructor(public controller: ValidationController) {
+    this.model = new FormModel();
+    this.countries = _.groupBy(window.countries, 'continent');
+  }
+
+  validate() {
+    this.controller.validate();
+  }
+}
+
+export class FormModel {
+  firstName: string = '';
+  lastName: string = '';
+
+  latitude: number;
+  longitude: number;
+
+  email: string;
+  phone: string;
+
+  info: string;
+
+  nationality: string;
+  countries: string;
+
+  birthday: string;
+  dateRangeStart: string;
+  dateRangeEnd: string;
+
+  movies = [
+    { name: 'Casablanca', selected: false },
+    { name: 'Gone with the Wind', selected: false },
+    { name: 'The Godfather', selected: false },
+    { name: 'The Good, The Bad, The Ugly', selected: false },
+    { name: 'Cape Fear', selected: false }
+  ]
+  cuisine: string = 'None';
+  cuisines = ['None', 'Italian', 'Mexican', 'Indian', 'Lebanese', 'Japanese']
+
+  constructor() {
+    ValidationRules
+      .ensure((m: FormModel) => m.firstName)
+      .required()
+      .maxLength(20)
+      .ensure(m => m.lastName)
+      .required()
+      .maxLength(20)
+      .ensure(m => m.email)
+      .required()
+      .email()
+      .ensure(m => m.phone)
+      .required()
+      .satisfiesRule('phone')
+      .ensure(m => m.latitude)
+      .required()
+      .satisfiesRule('integer', -90, 90)
+      .ensure(m => m.longitude)
+      .required()
+      .satisfiesRule('integer', -180, 180)
+      .on(FormModel);
+  }
+}
+        </pre>
+      </md-view>
+    </ui-tab>
+  </ui-tab-panel>
 </template>

@@ -405,7 +405,7 @@ export class Colors {
   constructor(public element: Element, public app: UIApplication) { }
 
   attached() {
-    new ZeroClipboard(this.element.querySelectorAll('button'))
+    new ZeroClipboard(this.element.querySelectorAll('.color-card button'))
       .on('aftercopy', () => this.app.toast("Copied!!!"));
   }
 

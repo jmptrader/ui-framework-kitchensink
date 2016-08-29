@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var compass = require('gulp-compass'),
   plumber = require('gulp-plumber');
 var del = require('del');
-var vinylPaths = require('vinyl-paths');
 var distFolder = '../dist';
 
 // SASS/Compass compiler
@@ -24,8 +23,9 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('clean', function() {
-  return gulp.src([distFolder + '/*', '!' + distFolder + '/CNAME'])
-    .pipe(vinylPaths(del));
+  return del([distFolder + '/*', '!' + distFolder + '/CNAME'], {
+    force: true
+  });
 });
 
 gulp.task('dist', function() {
