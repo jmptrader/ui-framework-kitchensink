@@ -32,6 +32,9 @@
                   <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
                 </ui-column>
                 <ui-column>
+                  <ui-option-group label='Gender'>
+                    <ui-switch gender></ui-switch>
+                  </ui-option-group>
                   <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
                 </ui-column>
               </ui-row>
@@ -106,7 +109,11 @@
         <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
       </ui-column>
       <ui-column>
-        <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
+        <ui-option-group label='Gender'>
+          <ui-switch gender></ui-switch>
+        </ui-option-group>
+        
+      <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
       </ui-column>
     </ui-row>
   </ui-fieldset>

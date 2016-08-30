@@ -22,7 +22,8 @@ export class UIMdView {
     this.taskQueue.queueMicroTask(() => {
       this.__code = this.__md.textContent;
       this.__md.innerHTML = UIFormat.toHTML('```' + this.type + '' + this.__md.textContent + '```');
-      if (hljs) hljs.highlightBlock(this.__md);
+      // if (hljs) setTimeout(() => hljs.highlightBlock(this.__md), 500);
+      if (hljs) hljs.highlightBlock(this.__md.querySelector('code'));
       new ZeroClipboard(this.__copy)
         .on('aftercopy', () => this.app.toast("Copied!!!"));
     });

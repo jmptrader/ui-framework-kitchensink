@@ -1,0 +1,137 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-tab-panel>
+    <ui-tab label="Example" scroll padded>
+      <h4>Plain Buttons</h4>
+      <div>
+        <ui-button label="Default"></ui-button>
+        <ui-button primary label="Primary"></ui-button>
+        <ui-button secondary label="Secondary"></ui-button>
+        <ui-button info label="Info"></ui-button>
+        <ui-button danger label="Danger"></ui-button>
+        <ui-button success label="Success"></ui-button>
+        <ui-button warning label="Warning"></ui-button>
+      </div>
+      <hr/>
+
+      <h4>Styles</h4>
+      <div>
+        <ui-button icon="fi-vaadin-circle-1" label="Small" small></ui-button>
+        <ui-button icon="fi-vaadin-circle-1" label="Large" large></ui-button>
+        <ui-button icon="fi-vaadin-circle-1" label="Round" round></ui-button>
+        <ui-button icon="fi-vaadin-circle-1" square></ui-button>
+        <ui-button icon="fi-vaadin-circle-1" label="Icon Top" icon-top></ui-button>
+        <ui-button icon="fi-vaadin-circle-1" label="Disabled" disabled="true"></ui-button>
+      </div>
+      <hr/>
+
+      <h4>Button Groups</h4>
+      <div>
+        <ui-button-group round>
+          <ui-button label="Primary" primary></ui-button>
+          <ui-button label="Secondary" secondary></ui-button>
+          <ui-button label="Info" info></ui-button>
+          <ui-button label="Danger" danger></ui-button>
+          <ui-button label="Success" success></ui-button>
+          <ui-button label="Warning" warning></ui-button>
+        </ui-button-group>
+      </div>
+      <br/>
+      <div>
+        <ui-button-group vertical>
+          <ui-button label="Primary" primary></ui-button>
+          <ui-button label="Secondary" secondary></ui-button>
+          <ui-button label="Info" info></ui-button>
+          <ui-button label="Danger" danger></ui-button>
+          <ui-button label="Success" success></ui-button>
+          <ui-button label="Warning" warning></ui-button>
+        </ui-button-group>
+      </div>
+      <hr/>
+
+      <h4>Button Groups Toggle</h4>
+      <p><small>Single - ${singleValue}</small></p>
+      <ui-button-group toggle="single" info value.bind="singleValue">
+        <ui-button value="0" label="Primary"></ui-button>
+        <ui-button value="1" label="Secondary"></ui-button>
+        <ui-button value="2" label="Info"></ui-button>
+        <ui-button value="3" label="Danger"></ui-button>
+        <ui-button value="4" label="Success"></ui-button>
+        <ui-button value="5" label="Warning"></ui-button>
+      </ui-button-group>
+      <p><small>Multiple - ${multipleValue}</small></p>
+      <ui-button-group toggle="multiple" primary value.bind="multipleValue">
+        <ui-button value="0" label="Primary"></ui-button>
+        <ui-button value="1" label="Secondary"></ui-button>
+        <ui-button value="2" label="Info"></ui-button>
+        <ui-button value="3" label="Danger"></ui-button>
+        <ui-button value="4" label="Success"></ui-button>
+        <ui-button value="5" label="Warning"></ui-button>
+      </ui-button-group>
+
+    </ui-tab>
+    <ui-tab label="Code" scroll padded>
+      <h4>Buttons</h4>
+      <md-view html>
+        <pre>
+<xmp>
+<ui-button label="Default"></ui-button>
+<ui-button primary label="Primary"></ui-button>
+<ui-button secondary label="Secondary"></ui-button>
+<ui-button info label="Info"></ui-button>
+<ui-button danger label="Danger"></ui-button>
+<ui-button success label="Success"></ui-button>
+<ui-button warning label="Warning"></ui-button>
+
+<ui-button icon="fi-vaadin-circle-1" label="Small" small></ui-button>
+<ui-button icon="fi-vaadin-circle-1" label="Large" large></ui-button>
+<ui-button icon="fi-vaadin-circle-1" label="Round" round></ui-button>
+<ui-button icon="fi-vaadin-circle-1" square></ui-button>
+<ui-button icon="fi-vaadin-circle-1" label="Icon Top" icon-top></ui-button>
+<ui-button icon="fi-vaadin-circle-1" label="Disabled" disabled="true"></ui-button>
+</xmp>
+        </pre>
+      </md-view>
+      <hr/>
+      <h4>Button Groups</h4>
+      <md-view html>
+        <pre>
+<xmp>
+<!-- Button Group child buttons with individual theme -->
+<ui-button-group [vertical] [small | large] [round] [icon-top]>
+  <ui-button label="Primary" primary></ui-button>
+  <ui-button label="Secondary" secondary></ui-button>
+  <ui-button label="Info" info></ui-button>
+  <ui-button label="Danger" danger></ui-button>
+  <ui-button label="Success" success></ui-button>
+  <ui-button label="Warning" warning></ui-button>
+</ui-button-group>
+
+<!-- Button Group theme will be applied to all child buttons -->
+<ui-button-group [primary | secondary | info | danger | success | warning]>
+  <ui-button label="Primary"></ui-button>
+  <ui-button label="Secondary"></ui-button>
+  <ui-button label="Info"></ui-button>
+  <ui-button label="Danger"></ui-button>
+  <ui-button label="Success"></ui-button>
+  <ui-button label="Warning"></ui-button>
+</ui-button-group>
+
+<ui-button-group toggle="single | multiple" info value.bind="singleValue">
+  <ui-button value="0" label="Primary"></ui-button>
+  <ui-button value="1" label="Secondary"></ui-button>
+  <ui-button value="2" label="Info"></ui-button>
+  <ui-button value="3" label="Danger"></ui-button>
+  <ui-button value="4" label="Success"></ui-button>
+  <ui-button value="5" label="Warning"></ui-button>
+</ui-button-group>
+</xmp>
+        </pre>
+      </md-view>
+    </ui-tab>
+  </ui-tab-panel>
+</template>
