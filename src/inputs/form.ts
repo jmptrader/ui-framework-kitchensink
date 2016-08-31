@@ -25,6 +25,7 @@ export class FormModel {
   email: string;
   phone: string;
 
+  gender: string = 'male';
   info: string;
 
   nationality: string;

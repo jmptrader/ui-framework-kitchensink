@@ -1,0 +1,37 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <style>
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  </style>
+  <ui-tab-panel>
+    <ui-tab label="Example" flex>
+      <ui-content scroll padded>
+        <div class='form-container'>
+          <ui-form auto-grid submit.trigger='validate()'>
+            <ui-fieldset>
+              <ui-row>
+                <ui-column>
+                  <ui-language view-model.ref="__langInput" select.trigger="changeLang($event)" languages.bind="langModels & validate" value.bind="lang">Language</ui-language>
+                </ui-column>
+                <ui-column></ui-column>
+              </ui-row>
+              <ui-markdown required rows="4" disabled.bind="!lang" value.bind="langModel.summary & validate">Summary</ui-markdown>
+              <ui-markdown required rows="8" disabled.bind="!lang" value.bind="langModel.description & validate">Description</ui-markdown>
+            </ui-fieldset>
+          </ui-form>
+        </div>
+      </ui-content>
+      <ui-toolbar>
+        <ui-button label='Validate' primary click.trigger='validate()'></ui-button>
+        <ui-button label='Reset'></ui-button>
+      </ui-toolbar>
+    </ui-tab>
+  </ui-tab-panel>
+</template>

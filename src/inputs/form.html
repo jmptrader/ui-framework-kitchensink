@@ -26,16 +26,16 @@
               </ui-row>
               <ui-row>
                 <ui-column>
+                  <ui-option-group label='Gender'>
+                    <ui-switch gender on-value="female" off-value="male" value.bind="model.gender"></ui-switch>
+                  </ui-option-group>
                   <ui-input required clear email value.bind='model.email & validate' prefix-icon='fi-vaadin-at' placeholder='user@domain.com'>Email</ui-input>
                   <ui-phone required clear international value.bind='model.phone & validate'>Primary Phone</ui-phone>
                   <ui-input-dual required clear decimal value.bind='model.latitude & validate' value-second.bind='model.longitude & validate' prefix-text='Lat.' center-text='Lon.' placeholder='-90 to 90' placeholder-second='-180 to 180'>Position</ui-input-dual>
-                  <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
                 </ui-column>
                 <ui-column>
-                  <ui-option-group label='Gender'>
-                    <ui-switch gender></ui-switch>
-                  </ui-option-group>
-                  <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
+                  <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
+                  <ui-textarea required clear value.bind='model.info & validate' rows='5' placeholder='About you...'>Info</ui-textarea>
                 </ui-column>
               </ui-row>
             </ui-fieldset>
@@ -97,23 +97,20 @@
     </ui-row>
     <ui-row>
       <ui-column>
-        <ui-input required clear email value.bind='model.email & validate' prefix-icon='fi-vaadin-at'
-          placeholder='user@domain.com'>Email</ui-input>
+        <ui-option-group label='Gender'>
+          <ui-switch gender on-value="female" off-value="male" value.bind="model.gender"></ui-switch>
+        </ui-option-group>
+
+        <ui-input required clear email value.bind='model.email & validate' prefix-icon='fi-vaadin-at' placeholder='user@domain.com'>Email</ui-input>
 
         <ui-phone required clear international value.bind='model.phone & validate'>Primary Phone</ui-phone>
 
-        <ui-input-dual required clear decimal value.bind='model.latitude & validate'
-          value-second.bind='model.longitude & validate' prefix-text='Lat.' center-text='Lon.'
-          placeholder='-90 to 90' placeholder-second='-180 to 180'>Position</ui-input-dual>
-
-        <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
+        <ui-input-dual required clear decimal value.bind='model.latitude & validate' value-second.bind='model.longitude & validate' prefix-text='Lat.' center-text='Lon.' placeholder='-90 to 90' placeholder-second='-180 to 180'>Position</ui-input-dual>
       </ui-column>
       <ui-column>
-        <ui-option-group label='Gender'>
-          <ui-switch gender></ui-switch>
-        </ui-option-group>
-        
-      <ui-textarea required clear value.bind='model.info & validate' rows='7' placeholder='About you...'>Info</ui-textarea>
+        <ui-input file prefix-icon='fi-vaadin-user'>Avatar Image</ui-input>
+
+        <ui-textarea required clear value.bind='model.info & validate' rows='5' placeholder='About you...'>Info</ui-textarea>
       </ui-column>
     </ui-row>
   </ui-fieldset>
@@ -192,6 +189,7 @@ export class FormModel {
   email: string;
   phone: string;
 
+  gender: string = 'male';
   info: string;
 
   nationality: string;
