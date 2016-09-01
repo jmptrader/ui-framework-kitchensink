@@ -17,7 +17,8 @@
         <ui-data-column sortable data-id="id" center locked width="70">ID</ui-data-column>
         <ui-data-column data-id="edt" edit locked></ui-data-column>
         <ui-data-column data-id="del" delete locked></ui-data-column>
-        <ui-data-column resizeable data-id="type" color locked width="140" labels.bind="['First','Second','Third','Fourth','Fifth','Sixth']">Type</ui-data-column>
+        <ui-data-column locked data-id="menu" button-menu.bind="dgMenu"></ui-data-column>
+        <ui-data-column sortable resizeable data-id="type" color locked width="140" labels.bind="['','First','Second','Third','Fourth','Fifth','Sixth']">Type</ui-data-column>
         <ui-data-column resizeable data-id="text">Text</ui-data-column>
         <ui-data-column sortable data-id="date" date>Date</ui-data-column>
         <ui-data-column sortable data-id="date" from-now>Date</ui-data-column>

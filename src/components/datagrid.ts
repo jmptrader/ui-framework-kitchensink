@@ -20,6 +20,15 @@ export class CompDatagrid {
     'Sed tincidunt lorem vel ex tempus accumsan.'
   ]
 
+  dgMenu = [
+    { id: 'view', text: "View Details", icon: 'fi-vaadin-eye' },
+    { id: 'edit', text: "Edit", icon: 'fi-vaadin-pencil' },
+    { id: 'delete', text: "Delete", icon: 'fi-vaadin-trash' },
+    '-',
+    { id: 'export', text: "Export Details", icon: 'fi-vaadin-download-symbol' }
+  ]
+
+
   attached() {
     setTimeout(() => this.generateData(this.dataCount), 500);
   }
@@ -30,9 +39,9 @@ export class CompDatagrid {
     for (let i = 0; i < v * 10; i++) {
       data.push({
         id: (i + 1),
-        type: Math.ceil(Math.random() * 5),
+        type: Math.ceil(Math.random() * 6),
         text: this.texts[Math.floor(Math.random() * 10)],
-        date: moment().add(Math.floor(Math.random() * 30), 'day'),
+        date: moment().add(Math.round(Math.random() * -30), 'day'),
         number: (Math.random() * 10) * 500,
         amount: (Math.random() * 100) * 5000
       });

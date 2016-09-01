@@ -139,8 +139,8 @@
           },
           {
             "name": "amcharts",
-            "path": "../node_modules/amcharts/dist",
-            "main": "amcharts/amcharts"
+            "path": "../node_modules/amcharts/dist/amcharts",
+            "main": "amcharts"
           },
           {
             "name": "sigma-ui-framework",
