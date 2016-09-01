@@ -1,0 +1,53 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-tab-panel>
+    <ui-tab label="Example" flex>
+      <ui-toolbar>
+        <ui-button-group primary toggle="single" change.trigger="generateData($event.detail)" value.bind="dataCount">
+          <ui-button value="1" label="Less Data"></ui-button>
+          <ui-button value="25" label="Small Data"></ui-button>
+          <ui-button value="10000" label="Large Data"></ui-button>
+        </ui-button-group>
+      </ui-toolbar>
+      <ui-datagrid data-list.bind="data" summary-row="true" use-virtual.bind="useVirtual">
+        <ui-data-column sortable data-id="id" center locked width="70">ID</ui-data-column>
+        <ui-data-column data-id="edt" edit locked></ui-data-column>
+        <ui-data-column data-id="del" delete locked></ui-data-column>
+        <ui-data-column resizeable data-id="type" color locked width="140" labels.bind="['First','Second','Third','Fourth','Fifth','Sixth']">Type</ui-data-column>
+        <ui-data-column resizeable data-id="text">Text</ui-data-column>
+        <ui-data-column resizeable data-id="text2">Text 2</ui-data-column>
+        <ui-data-column resizeable data-id="text3">Text 3</ui-data-column>
+        <ui-data-column resizeable data-id="text4">Text 4</ui-data-column>
+        <ui-data-column sortable data-id="date" date>Date</ui-data-column>
+      </ui-datagrid>
+    </ui-tab>
+    <ui-tab label="View" scroll padded>
+      <md-view>
+        <pre>
+<xmp>
+<ui-datagrid data-list.bind="data">
+
+  <ui-data-column sortable data-id="id" center locked width="70">ID</ui-data-column>
+
+  <ui-data-column data-id="edt" edit locked></ui-data-column>
+
+  <ui-data-column data-id="del" delete locked></ui-data-column>
+
+  <ui-data-column resizeable data-id="type" color locked width="140"
+    labels.bind="['First','Second','Third','Fourth','Fifth','Sixth']">Type</ui-data-column>
+
+  <ui-data-column resizeable data-id="text">Text</ui-data-column>
+
+  <ui-data-column sortable data-id="date" date>Date</ui-data-column>
+
+</ui-datagrid>
+</xmp>
+        </pre>
+      </md-view>
+    </ui-tab>
+  </ui-tab-panel>
+</template>

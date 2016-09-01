@@ -17,6 +17,7 @@ export function configure(aurelia: Aurelia) {
     .standardConfiguration()
     .feature('resources')
     .plugin('aurelia-validation')
+    .plugin('aurelia-ui-virtualization')
     .plugin('aurelia-i18n', (instance) => {
       // register backend plugin
       instance.i18next.use(Backend);

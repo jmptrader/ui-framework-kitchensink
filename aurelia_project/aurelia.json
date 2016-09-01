@@ -133,6 +133,11 @@
             "main": "aurelia-validation"
           },
           {
+            "name": "aurelia-ui-virtualization",
+            "path": "../node_modules/aurelia-ui-virtualization/dist/amd",
+            "main": "aurelia-ui-virtualization"
+          },
+          {
             "name": "amcharts",
             "path": "../node_modules/amcharts/dist",
             "main": "amcharts/amcharts"
