@@ -2,7 +2,7 @@ import {moment, UIEvent} from "sigma-ui-framework";
 
 export class CompDatagrid {
   data = [];
-  dataCount = 25;
+  dataCount = 5;
 
   useVirtual = false;
 
@@ -30,12 +30,11 @@ export class CompDatagrid {
     for (let i = 0; i < v * 10; i++) {
       data.push({
         id: (i + 1),
-        text: this.texts[Math.floor(Math.random() * 10)],
-        text2: this.texts[Math.floor(Math.random() * 10)],
-        text3: this.texts[Math.floor(Math.random() * 10)],
-        text4: this.texts[Math.floor(Math.random() * 10)],
         type: Math.ceil(Math.random() * 5),
-        date: moment().add(Math.floor(Math.random() * 30), 'day')
+        text: this.texts[Math.floor(Math.random() * 10)],
+        date: moment().add(Math.floor(Math.random() * 30), 'day'),
+        number: (Math.random() * 10) * 500,
+        amount: (Math.random() * 100) * 5000
       });
     }
     this.data = data;

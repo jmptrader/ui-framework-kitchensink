@@ -23,8 +23,8 @@ export class InputLang {
         .satisfiesRule('language', this.controller, this.__langInput)
         .on(this);
 
-      this.controller.addObject(this.langModels.en);
-      this.controller.addObject(this.langModels.es);
+      // this.controller.addObject(this.langModels.en);
+      // this.controller.addObject(this.langModels.es);
     });
   }
 
