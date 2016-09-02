@@ -85,7 +85,12 @@
         "name": "ui-framework.js",
         "prepend": [
           "node_modules/whatwg-fetch/fetch.js",
-          "node_modules/fabric/dist/fabric.js"
+          "node_modules/fabric/dist/fabric.js",
+          "node_modules/amcharts/dist/amcharts/amcharts.js",
+          "node_modules/amcharts/dist/amcharts/pie.js",
+          "node_modules/amcharts/dist/amcharts/serial.js",
+          "node_modules/amcharts/dist/amcharts/themes/light.js",
+          "node_modules/amcharts/dist/amcharts/plugins/export/export.js"
         ],
         "dependencies": [
           "lodash",
@@ -136,11 +141,6 @@
             "name": "aurelia-ui-virtualization",
             "path": "../node_modules/aurelia-ui-virtualization/dist/amd",
             "main": "aurelia-ui-virtualization"
-          },
-          {
-            "name": "amcharts",
-            "path": "../node_modules/amcharts/dist/amcharts",
-            "main": "amcharts"
           },
           {
             "name": "sigma-ui-framework",
