@@ -6,9 +6,13 @@ import {_, UIEvent} from "sigma-ui-framework";
 export class InputLang {
   lang = '';
   langModel = {};
+  langDir = 'ltr';
   langModels = {
-    en: new LangModel(),
-    es: new LangModel()
+    ar: new LangModel('### هل تتحدث العربية؟'),
+    en: new LangModel('### Do you speak English?'),
+    es: new LangModel('### ¿Hablas español?'),
+    fr: new LangModel('### Parlez-vous français?'),
+    de: new LangModel('### Sprechen sie deutsch?')
   }
 
   __langInput;
@@ -30,7 +34,16 @@ export class InputLang {
 
   changeLang($event) {
     this.controller.reset({ object: this.langModel });
-    this.langModel = this.langModels[$event.detail];
+    this.langModel = this.langModels[$event.detail] || {};
+    this.langDir = $event.detail == 'ar' ? 'rtl' : 'ltr';
+  }
+
+  addLang($event) {
+    this.langModels[$event.detail] = new LangModel();
+  }
+
+  removeLang($event) {
+    delete this.langModels[$event.detail];
   }
 
   validate() {
@@ -42,7 +55,9 @@ export class LangModel {
   summary: string = '';
   description: string = '';
 
-  constructor() {
+  constructor(su?, de?) {
+    this.summary = su;
+    this.description = de;
     ValidationRules
       .ensure((m: LangModel) => m.summary)
       .required()

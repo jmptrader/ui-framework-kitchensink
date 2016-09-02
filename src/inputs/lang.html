@@ -18,12 +18,15 @@
             <ui-fieldset>
               <ui-row>
                 <ui-column>
-                  <ui-language view-model.ref="__langInput" select.trigger="changeLang($event)" languages.bind="langModels & validate" value.bind="lang">Language</ui-language>
+                  <ui-language view-model.ref="__langInput" languages.bind="langModels & validate" value.bind="lang"
+                    select.trigger="changeLang($event)"
+                    add.trigger="addLang($event)"
+                    delete.trigger="removeLang($event)">Language</ui-language>
                 </ui-column>
                 <ui-column></ui-column>
               </ui-row>
-              <ui-markdown required rows="4" disabled.bind="!lang" value.bind="langModel.summary & validate">Summary</ui-markdown>
-              <ui-markdown required rows="8" disabled.bind="!lang" value.bind="langModel.description & validate">Description</ui-markdown>
+              <ui-markdown dir.bind="langDir" required rows="4" disabled.bind="!lang" value.bind="langModel.summary & validate">Summary</ui-markdown>
+              <ui-markdown dir.bind="langDir" required rows="8" disabled.bind="!lang" value.bind="langModel.description & validate">Description</ui-markdown>
             </ui-fieldset>
           </ui-form>
         </div>
@@ -32,6 +35,106 @@
         <ui-button label='Validate' primary click.trigger='validate()'></ui-button>
         <ui-button label='Reset'></ui-button>
       </ui-toolbar>
+    </ui-tab>
+    <ui-tab label="View" padded scroll>
+      <md-view>
+        <pre>
+<xmp>
+<div class='form-container'>
+  <ui-form auto-grid submit.trigger='validate()'>
+    <ui-fieldset>
+      <ui-row>
+        <ui-column>
+          <ui-language view-model.ref="__langInput" languages.bind="langModels & validate" value.bind="lang"
+            select.trigger="changeLang($event)"
+            add.trigger="addLang($event)"
+            delete.trigger="removeLang($event)">Language</ui-language>
+        </ui-column>
+        <ui-column></ui-column>
+      </ui-row>
+      <ui-markdown required rows="4" dir.bind="langDir" disabled.bind="!lang"
+        value.bind="langModel.summary & validate">Summary</ui-markdown>
+
+      <ui-markdown required rows="8" dir.bind="langDir" disabled.bind="!lang"
+        value.bind="langModel.description & validate">Description</ui-markdown>
+    </ui-fieldset>
+  </ui-form>
+</div>
+</xmp>
+        </pre>
+      </md-view>
+    </ui-tab>
+    <ui-tab label="ViewModel" scroll padded>
+      <md-view ts>
+        <pre>
+import {inject, NewInstance} from "aurelia-framework";
+import {ValidationController, ValidationRules} from "aurelia-validation";
+import {_, UIEvent} from "sigma-ui-framework";
+
+@inject(NewInstance.of(ValidationController))
+export class InputLang {
+  lang = '';
+  langModel = {};
+  langDir = 'ltr';
+  langModels = {}
+
+  __langInput;
+
+  constructor(public controller: ValidationController) {
+    this.langModels = {
+      ar: new LangModel('### هل تتحدث العربية؟'),
+      en: new LangModel('### Do you speak English?'),
+      es: new LangModel('### ¿Hablas español?'),
+      fr: new LangModel('### Parlez-vous français?'),
+      de: new LangModel('### Sprechen sie deutsch?')
+    }
+  }
+
+  attached() {
+    UIEvent.queueTask(() => {
+      ValidationRules
+        .ensure((m: InputLang) => m.langModels)
+        .satisfiesRule('language', this.controller, this.__langInput)
+        .on(this);
+    });
+  }
+
+  changeLang($event) {
+    this.controller.reset({ object: this.langModel });
+    this.langModel = this.langModels[$event.detail] || {};
+    this.langDir = $event.detail == 'ar' ? 'rtl' : 'ltr';
+  }
+
+  addLang($event) {
+    this.langModels[$event.detail] = new LangModel();
+  }
+
+  removeLang($event) {
+    delete this.langModels[$event.detail];
+  }
+
+  validate() {
+    this.controller.validate().then(e => console.log(e));
+  }
+}
+
+export class LangModel {
+  summary: string = '';
+  description: string = '';
+
+  constructor(su?, de?) {
+    this.summary = su;
+    this.description = de;
+    ValidationRules
+      .ensure((m: LangModel) => m.summary)
+      .required()
+      .ensure(m => m.description)
+      .required()
+      .on(this);
+  }
+}
+        </pre>
+      </md-view>
     </ui-tab>
   </ui-tab-panel>
 </template>

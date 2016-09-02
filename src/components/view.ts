@@ -19,6 +19,7 @@ export class ComponentsHome {
         route: 'panel',
         moduleId: './panel',
         title: 'Panel',
+        settings: { disabled: true },
         nav: true,
         auth: false,
         name: 'panel'
