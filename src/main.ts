@@ -40,7 +40,7 @@ export function configure(aurelia: Aurelia) {
       });
     })
     .plugin('sigma-ui-framework', function(config: UIConfig) {
-      config.loadCharts();
+      config.useAmCharts();
     });
 
   if (environment.debug) {
