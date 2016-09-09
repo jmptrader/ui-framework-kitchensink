@@ -1,0 +1,59 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+	<style>
+		.panel-container {
+			width: 80%;
+			position: relative;
+			margin: 2em auto;
+			border: 1px solid #aaa;
+			box-shadow: 1px 1px 3px 0 #ccc;
+		}
+
+	</style>
+	<ui-content>
+		<ui-tab-panel>
+			<ui-tab label="Example" scroll padded>
+				<div class="panel-container ui-pad-all">
+					<h4>Simple Panel</h4>
+					<ui-panel>
+						<ui-body padded scroll>
+							<span innerhtml.bind="lipsum | markdown"></span>
+						</ui-body>
+					</ui-panel>
+					<h4>Header Panel</h4>
+					<ui-panel>
+						<ui-header primary>Panel Title</ui-header>
+						<ui-body padded scroll>
+							<span innerhtml.bind="lipsum | markdown"></span>
+						</ui-body>
+					</ui-panel>
+				</div>
+			</ui-tab>
+			<ui-tab label="View" scroll padded>
+				<md-view>
+					<pre>
+<xmp>
+<h4>Simple Panel</h4>
+<ui-panel>
+	<ui-body padded scroll>
+		<span innerhtml.bind="lipsum | markdown"></span>
+	</ui-body>
+</ui-panel>
+<h4>Header Panel</h4>
+<ui-panel>
+	<ui-header primary>Panel Title</ui-header>
+	<ui-body padded scroll>
+		<span innerhtml.bind="lipsum | markdown"></span>
+	</ui-body>
+</ui-panel>
+</xmp>
+					</pre>
+				</md-view>
+			</ui-tab>
+		</ui-tab-panel>
+	</ui-content>
+</template>

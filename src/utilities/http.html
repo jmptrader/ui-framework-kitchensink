@@ -1,0 +1,34 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-content scroll padded>
+    <h3>Using UIHttpService</h3>
+    <p>UIHttpService is a singleton class, it provides http fetch related functions</p>
+    <p>For complete documentation of available properties and methods <a href="http://sigmaframeworks.io/docs/framework/utilities.html#http-service" target="_blank">read this</a></p>
+    <md-view ts>
+      <pre>
+import {inject} from "aurelia-framework";
+import {UIApplication, UIHttpService} from "sigma-ui-framework";
+@inject(UIApplication, UIHttpService)
+export class MyViewModel {
+  constructor(public app:UIApplication, public http:UIHttpService){}
+
+  canActivate() {
+    // return http promise to load content before transitioning to a view
+		return http.get('/api-slug')
+			.then(resp => this.content = resp)
+			.catch(e => this.app.toastError(e.message));
+  }
+
+  someTrigger() {
+    this.http.post('/api-slug', postBody)
+			.catch(e => this.app.toastError(e.message));
+  }
+}
+      </pre>
+    </md-view>
+  </ui-content>
+</template>

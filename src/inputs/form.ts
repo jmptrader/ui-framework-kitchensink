@@ -28,7 +28,7 @@ export class FormModel {
   gender: string = 'male';
   info: string;
 
-  nationality: string;
+  nationality: string = '';
   countries: string;
 
   birthday: string;
@@ -53,6 +53,8 @@ export class FormModel {
       .ensure(m => m.lastName)
       .required()
       .maxLength(20)
+      .ensure(m => m.nationality)
+      .required()
       .ensure(m => m.email)
       .required()
       .email()

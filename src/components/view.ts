@@ -19,7 +19,6 @@ export class ComponentsHome {
         route: 'panel',
         moduleId: './panel',
         title: 'Panel',
-        settings: { disabled: true },
         nav: true,
         auth: false,
         name: 'panel'
@@ -27,7 +26,6 @@ export class ComponentsHome {
         route: 'dialog',
         moduleId: './dialog',
         title: 'Dialog',
-        settings: { disabled: true },
         nav: true,
         auth: false,
         name: 'dialog'
@@ -35,7 +33,6 @@ export class ComponentsHome {
         route: 'tabs',
         moduleId: './tabs',
         title: 'Tab Panel',
-        settings: { disabled: true },
         nav: true,
         auth: false,
         name: 'tabs'

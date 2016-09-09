@@ -1,0 +1,58 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+	<style>
+		.tab-container {
+			width: 80%;
+			height: 500px;
+			position: relative;
+			margin: 2em auto;
+			border: 1px solid #aaa;
+			box-shadow: 1px 1px 3px 0 #ccc;
+		}
+
+	</style>
+	<ui-content>
+		<ui-tab-panel>
+			<ui-tab label="Example" scroll padded>
+				<div class="tab-container">
+					<ui-tab-panel>
+						<ui-tab label="Lorem Ipsum" padded scroll>
+							<span innerhtml.bind="lipsum | markdown"></span>
+						</ui-tab>
+						<ui-tab label="Colors" icon="fi-vaadin-paint-brush" padded scroll>
+							<compose view-model="../styles/colors"></compose>
+						</ui-tab>
+						<ui-tab label="Grid" icon="fi-vaadin-table" flex>
+							<compose view-model="./datagrid"></compose>
+						</ui-tab>
+					</ui-tab-panel>
+				</div>
+			</ui-tab>
+			<ui-tab label="View" scroll padded>
+				<md-view>
+					<pre>
+<xmp>
+<ui-tab-panel>
+	
+	<ui-tab label="Lorem Ipsum" padded scroll><span innerhtml.bind="lipsum | markdown"></span></ui-tab>
+	
+	<ui-tab label="Colors" icon="fi-vaadin-paint-brush" padded scroll>
+		<compose view-model="../styles/colors"></compose>
+	</ui-tab>
+	
+	<ui-tab label="Grid" icon="fi-vaadin-table" flex>
+		<compose view-model="./datagrid"></compose>
+	</ui-tab>
+	
+</ui-tab-panel>
+</xmp>
+					</pre>
+				</md-view>
+			</ui-tab>
+		</ui-tab-panel>
+	</ui-content>
+</template>

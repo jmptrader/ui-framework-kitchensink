@@ -4,7 +4,102 @@
 // @license     : MIT
 -->
 <template>
-  <ui-content scroll padded>
-    <h3>Menus</h3>
-  </ui-content>
+	<style>
+		.menu-container {
+			width: 220px;
+			border: 1px solid #aaa;
+			box-shadow: 1px 1px 3px 0 #ccc;
+		}
+
+	</style>
+	<ui-content>
+		<ui-tab-panel>
+			<ui-tab label="Example" scroll padded>
+				<ui-row>
+					<ui-column auto padded>
+						<h4>Simple Menu</h4>
+						<div class="menu-container">
+							<ui-menu>
+								<section>Section</section>
+								<menu active="true">Starter</menu>
+								<menu>My Form</menu>
+								<divider></divider>
+								<menu>Settings</menu>
+							</ui-menu>
+						</div>
+					</ui-column>
+
+					<ui-column auto padded class="ui-text-center">
+						<h4>Button with Menu</h4>
+						<ui-button menu icon="fi-vaadin-cogwheel" label="Options" class="ui-text-start">
+							<section>Actions</section>
+							<menu>Edit</menu>
+							<menu>Delete</menu>
+							<divider></divider>
+							<menu>Settings</menu>
+						</ui-button>
+					</ui-column>
+
+					<ui-column auto padded class="ui-text-center">
+						<h4>Button as Dropdown</h4>
+						<ui-button dropdown value="1" label="Dropdown">
+							<menu id="1">Option 1</menu>
+							<menu id="2">Option 2</menu>
+							<menu id="3">Option 3</menu>
+							<menu id="4">Option 4</menu>
+							<menu id="5">Option 5</menu>
+						</ui-button>
+					</ui-column>
+
+				</ui-row>
+
+			</ui-tab>
+			<ui-tab label="View" scroll padded>
+				<md-view>
+					<pre>
+<xmp>
+<ui-row>
+	
+	<ui-column auto padded>
+		<h4>Simple Menu</h4>
+		<div class="menu-container">
+			<ui-menu>
+				<section>Actions</section>
+				<menu active="true">Starter</menu>
+				<menu>My Form</menu>
+				<divider></divider>
+				<menu>Settings</menu>
+			</ui-menu>
+		</div>
+	</ui-column>
+
+	<ui-column auto padded class="ui-text-center">
+		<h4>Button with Menu</h4>
+		<ui-button menu icon="fi-vaadin-cogwheel" label="Options" class="ui-text-start">
+			<section>Actions</section>
+			<menu>Edit</menu>
+			<menu>Delete</menu>
+			<divider></divider>
+			<menu>Settings</menu>
+		</ui-button>
+	</ui-column>
+
+	<ui-column auto padded class="ui-text-center">
+		<h4>Button as Dropdown</h4>
+		<ui-button dropdown value="1" label="Dropdown">
+			<menu id="1">Option 1</menu>
+			<menu id="2">Option 2</menu>
+			<menu id="3">Option 3</menu>
+			<menu id="4">Option 4</menu>
+			<menu id="5">Option 5</menu>
+		</ui-button>
+	</ui-column>
+
+</ui-row>
+</xmp>
+					</pre>
+				</md-view>
+			</ui-tab>
+		</ui-tab-panel>
+	</ui-content>
 </template>

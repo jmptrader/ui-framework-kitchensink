@@ -22,6 +22,7 @@
     "./typings/index.d.ts",
     "./custom_typings/**/*.d.ts",
     "./node_modules/i18next-xhr-backend/typings/*.d.ts",
+    "./node_modules/sigma-libs/typings/*.d.ts",
     "./node_modules/sigma-ui-framework/dist/typings/**/*.d.ts"
   ],
   "atom": {

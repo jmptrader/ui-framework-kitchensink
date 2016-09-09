@@ -1,0 +1,104 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <style>
+    .form-container {
+      width: 600px;
+      position: relative;
+      margin: 2em auto;
+      border: 1px solid #aaa;
+      box-shadow: 1px 1px 3px 0 #ccc;
+    }
+
+  </style>
+  <ui-tab-panel>
+    <ui-tab label="Example" scroll padded>
+      <div class="form-container">
+        <ui-form padded>
+          <ui-row>
+            <ui-column fill>
+              <ui-input value.bind="dlgModel.title">Title</ui-input>
+            </ui-column>
+            <ui-column auto>
+              <ui-button dropdown value.bind="dlgModel.icon" label="Icon">
+                <menu id="">None</menu>
+                <menu id="fi-vaadin-add-square">Add</menu>
+                <menu id="fi-vaadin-pencil">Edit</menu>
+                <menu id="fi-vaadin-cogwheel">Settings</menu>
+              </ui-button>
+            </ui-column>
+          </ui-row>
+          <ui-option-group label="Options">
+            <ui-checkbox checked.bind="dlgModel.modal">Modal</ui-checkbox>
+            <ui-checkbox checked.bind="dlgModel.resize">Resize</ui-checkbox>
+            <ui-checkbox checked.bind="dlgModel.maximize">Maximize</ui-checkbox>
+          </ui-option-group>
+          <ui-toolbar>
+            <ui-button label="Show Dialog" click.trigger="openDialog()"></ui-button>
+          </ui-toolbar>
+        </ui-form>
+      </div>
+    </ui-tab>
+    <ui-tab label="Code" scroll padded>
+      <md-view>
+        <pre>
+<xmp>
+<template>
+  <ui-content scroll padded>
+    <span innerhtml.bind="lipsum | markdown"></span>
+  </ui-content>
+  <ui-toolbar>
+    <ui-button click.trigger="close()" label="Close"></ui-buton>
+  </ui-toolbar>
+</template>
+</xmp>
+        </pre>
+      </md-view>
+
+      <h5>ViewModel</h5>
+      <md-view ts>
+        <pre>
+import {autoinject, inlineView} from "aurelia-framework";
+import {UIDialog} from "sigma-ui-framework";
+
+@autoinject()
+export class MyDialog extends UIDialog {
+  lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+  width = "500px";
+  height = "300px";
+
+  title = 'Dialog';
+  icon = '';
+
+  modal = false;
+  resize = false;
+  maximize = false;
+  
+  canActivate(model) {
+    return true;
+  }
+
+  activate(model) {
+  }
+  
+  bind() {
+  }
+
+  attached(model) {
+  }
+  
+  unbind() {
+  }
+  
+  detached() {
+  }
+}
+        </pre>
+      </md-view>
+    </ui-tab>
+  </ui-tab-panel>
+</template>

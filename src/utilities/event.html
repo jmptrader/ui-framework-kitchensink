@@ -1,0 +1,47 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-content scroll padded>
+    <h3>Using UIEvent</h3>
+    <p>UIEvent is a singleton class with static methods, it provides event related methods</p>
+    <p>For complete documentation of available properties and methods <a href="http://sigmaframeworks.io/docs/framework/utilities.html#event" target="_blank">read this</a></p>
+    <md-view ts>
+      <pre>
+import {inject} from "aurelia-framework";
+import {UIEvent} from "sigma-ui-framework";
+export class MyViewModel {
+	
+	someProp = '';
+	propObserver;
+	eventObserver;
+	
+  constructor(){
+		this.eventObserver = UIEvent.subscribe('SomeEvent', (data) => this.someCallback(data));
+	}
+	
+	bind() {	
+		this.propObserver = UIEvent.observe(this, 'someProp')
+			.subscribe(() => someTrigger());
+	}
+	
+	unbind() {
+		this.eventObserver.dispose();
+		this.propObserver.dispose();
+	}
+	
+	someTrigger() {
+		UIEvent.broadcast('SomeEvent', data);
+	}
+
+  someCallback(data) {
+    this.http.post('/api-slug', postBody)
+			.catch(e => this.app.toastError(e.message));
+  }
+}
+      </pre>
+    </md-view>
+  </ui-content>
+</template>

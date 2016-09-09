@@ -1,0 +1,50 @@
+<!--
+// @author      : Adarsh Pastakia
+// @copyright   : 2016 Sigma Frameworks
+// @license     : MIT
+-->
+<template>
+  <ui-content scroll padded>
+    <h3>Using Value Converters and UIFormat</h3>
+    <p>UIFormat is a singleton class with static methods, it provides formatting related methods</p>
+    <p>For complete documentation of available properties and methods <a href="http://sigmaframeworks.io/docs/framework/utilities.html#converters--formatters" target="_blank">read this</a></p>
+		<hr/>
+		<h3>Value Converters</h3>
+		<p>Date: ${'2016-01-01T08:48:00Z' | date}</p>
+		<p>From Now: ${'2016-01-01T08:48:00Z' | fromNow}</p>
+		<p>Number: ${192849.9981 | number:'0.00 a'}</p>
+		<p>Currency: ${192849.9981 | currency:'£'}</p>
+		<p>JSON: ${{a:1,b:2} | json}</p>
+		<p>Markdown: <span innerhtml.bind="'__Hello World__' | markdown"></span></p>
+		<md-view html>
+      <pre>
+<xmp>
+<p>Date: \${'2016-01-01T08:48:00Z' | date}</p>
+<p>From Now: \${'2016-01-01T08:48:00Z' | fromNow}</p>
+<p>Number: \${192849.9981 | number:'0.00 a'}</p>
+<p>Currency: \${192849.9981 | currency:'£'}</p>
+<p>JSON: \${{a:1,b:2} | json}</p>
+<p>Markdown: <span innerhtml.bind="'__Hello World__' | markdown"></span></p>
+</xmp>
+      </pre>
+    </md-view>
+		<br/>
+		<md-view ts>
+      <pre>
+import {inject} from "aurelia-framework";
+import {UIFormat} from "sigma-ui-framework";
+export class MyViewModel {
+	
+	formattedDate = '';
+	formattedNumber = '';
+	
+	bind() {	
+		this.dateToPost = UIFormat.dateToISO(new Date())
+		
+		this.formattedNumber = UIFormat.number(1928.4981, '0,0.00')
+	}
+}
+      </pre>
+    </md-view>
+  </ui-content>
+</template>
