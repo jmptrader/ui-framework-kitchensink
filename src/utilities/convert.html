@@ -4,18 +4,25 @@
 // @license     : MIT
 -->
 <template>
+  <style>
+    .label-sized {
+      display: inline-block;
+      font-weight: 600;
+      width: 6em;
+    }
+  </style>
   <ui-content scroll padded>
     <h3>Using Value Converters and UIFormat</h3>
     <p>UIFormat is a singleton class with static methods, it provides formatting related methods</p>
     <p>For complete documentation of available properties and methods <a href="http://sigmaframeworks.io/docs/framework/utilities.html#converters--formatters" target="_blank">read this</a></p>
 		<hr/>
 		<h3>Value Converters</h3>
-		<p>Date: ${'2016-01-01T08:48:00Z' | date}</p>
-		<p>From Now: ${'2016-01-01T08:48:00Z' | fromNow}</p>
-		<p>Number: ${192849.9981 | number:'0.00 a'}</p>
-		<p>Currency: ${192849.9981 | currency:'£'}</p>
-		<p>JSON: ${{a:1,b:2} | json}</p>
-		<p>Markdown: <span innerhtml.bind="'__Hello World__' | markdown"></span></p>
+		<p><span class="label-sized ui-text-end">Date:</span> ${'2016-01-01T08:48:00Z' | date}</p>
+		<p><span class="label-sized ui-text-end">From Now:</span> ${'2016-01-01T08:48:00Z' | fromNow}</p>
+		<p><span class="label-sized ui-text-end">Number:</span> ${192849.9981 | number:'0.00 a'}</p>
+		<p><span class="label-sized ui-text-end">Currency:</span> ${192849.9981 | currency:'£'}</p>
+		<p><span class="label-sized ui-text-end">JSON:</span> ${{a:1,b:2} | json}</p>
+		<p><span class="label-sized ui-text-end">Markdown:</span> <span style="display: inline-block" innerhtml.bind="'_Hello World_' | markdown"></span></p>
 		<md-view html>
       <pre>
 <xmp>
@@ -24,7 +31,7 @@
 <p>Number: \${192849.9981 | number:'0.00 a'}</p>
 <p>Currency: \${192849.9981 | currency:'£'}</p>
 <p>JSON: \${{a:1,b:2} | json}</p>
-<p>Markdown: <span innerhtml.bind="'__Hello World__' | markdown"></span></p>
+<p>Markdown: <span innerhtml.bind="'_Hello World_' | markdown"></span></p>
 </xmp>
       </pre>
     </md-view>

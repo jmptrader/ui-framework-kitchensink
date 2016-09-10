@@ -25,7 +25,7 @@ export class ComponentsHome {
       }, {
         route: 'dialog',
         moduleId: './dialog',
-        title: 'Dialog',
+        title: 'Dialogs/Alerts',
         nav: true,
         auth: false,
         name: 'dialog'
