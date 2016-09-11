@@ -3,9 +3,8 @@ import {_} from "sigma-ui-framework";
 
 @autoinject()
 export class CssFlags {
-	countries = {};
-	constructor() {
-		this.countries = _.groupBy(window.countries, 'continent');
-		console.log(this.countries);
-	}
+  countries = {};
+  constructor() {
+    this.countries = _.chain(window.countries).sortBy('name').groupBy('continent').value();
+  }
 }

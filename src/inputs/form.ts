@@ -4,7 +4,7 @@ import {_} from "sigma-ui-framework";
 
 @inject(NewInstance.of(ValidationController))
 export class InputForm {
-  countries = _.groupBy(window.countries, 'continent');
+  countries = _.chain(window.countries).sortBy('name').groupBy('continent').value();
   model: FormModel;
   constructor(public controller: ValidationController) {
     this.model = new FormModel();
