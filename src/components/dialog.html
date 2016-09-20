@@ -22,7 +22,7 @@
                 <ui-input value.bind="dlgModel.title">Title</ui-input>
               </ui-column>
               <ui-column auto>
-                <ui-button dropdown value.bind="dlgModel.icon" label="Icon">
+                <ui-button dropdown value.bind="dlgModel.icon" label="Icon" no-shadow>
                   <menu id="">None</menu>
                   <menu id="fi-vaadin-add-square">Add</menu>
                   <menu id="fi-vaadin-pencil">Edit</menu>
@@ -46,7 +46,7 @@
                 <ui-input value.bind="alert.message">Message</ui-input>
               </ui-column>
               <ui-column auto>
-                <ui-button dropdown value.bind="alert.type" label="Icon">
+                <ui-button dropdown value.bind="alert.type" label="Icon" no-shadow>
                   <menu id="info">Info</menu>
                   <menu id="error">Error</menu>
                   <menu id="exclaim">Exclaim</menu>
@@ -73,7 +73,7 @@
                 <ui-input value.bind="toast.message">Message</ui-input>
               </ui-column>
               <ui-column auto>
-                <ui-button dropdown value.bind="toast.icon" label="Icon">
+                <ui-button dropdown value.bind="toast.icon" label="Icon" no-shadow>
                   <menu id="">None</menu>
                   <menu id="fi-vaadin-bell">Bell</menu>
                   <menu id="fi-vaadin-comments">Comments</menu>
@@ -92,7 +92,7 @@
                 </ui-option-group>
               </ui-column>
               <ui-column width="12em">
-                <ui-input auto-width label-top number value.bind="toast.autoHide">Auto Hide</ui-input>
+                <ui-input auto-width label-top number value.bind="toast.autoHide" help-text="0 to disable auto-hide">Auto Hide</ui-input>
               </ui-column>
             </ui-row>
             <ui-toolbar>

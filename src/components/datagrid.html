@@ -13,7 +13,7 @@
           <ui-button value="10000" label="10K Records"></ui-button>
         </ui-button-group>
       </ui-toolbar>
-      <ui-datagrid data-list.bind="data" summary-row="true" use-virtual.bind="useVirtual">
+      <ui-datagrid data-list.bind="data" summary-row="true" use-virtual.bind="useVirtual" selectable>
         <ui-data-column sortable data-id="id" center locked width="70">ID</ui-data-column>
         <ui-data-column data-id="edt" edit locked></ui-data-column>
         <ui-data-column data-id="del" delete locked></ui-data-column>
